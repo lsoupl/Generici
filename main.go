@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Number interface {
-	int64 | float64
+	~int64 | float64
 }
 
 type CustomInt int64
@@ -15,11 +17,13 @@ func (ci CustomInt) IsPositive() bool {
 type Numbers[T Number] []T
 
 func main() {
-	showSum()
-	showContains()
-	showAny()
-	unionInterfaceAndType()
-	typeApproximation()
+	// Generics
+	//showSum()
+	//showContains()
+	//showAny()
+	//unionInterfaceAndType()
+	//typeApproximation()
+
 }
 
 func showSum() {
@@ -69,10 +73,10 @@ func showContains() {
 		age:      21,
 		jobTitle: "Programmer",
 	}))
-	
+
 	fmt.Println("structs:", contains(people, Person{
 		name:     "Vasya",
-		age:      21,
+		age:      20,
 		jobTitle: "Programmer",
 	}))
 }
@@ -107,7 +111,7 @@ func typeApproximation() {
 		castedInts[idx] = int64(val)
 	}
 
-	//fmt.Println(sumUnionInterface(customInts))
+	fmt.Println(sumUnionInterface(customInts))
 	fmt.Println(sumUnionInterface(castedInts))
 
 }
